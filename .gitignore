@@ -1,19 +1,14 @@
+.*
 index.html
-/Lesson2/
-/Lesson3/bin/
-/Lesson3/bin
-/.classpath
-/.project
 
+Lesson2/bin
+Lesson2/.classpath
+Lesson2/.project
+Lesson2/.settings/org.eclipse.jdt.core.prefs
+
+Lesson3/bin
+Lesson3/.classpath
+Lesson3/.project
+Lesson3/.settings/org.eclipse.jdt.core.prefs
 
 /.metadata/
-target
-.settings
-.idea
-*.iml
-
-/out/
-.idea/
-*.ini
-*.iml
-/target/
