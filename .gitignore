@@ -1,0 +1,12 @@
+index.html
+/Lesson2/
+/bin/
+/.classpath
+/.project
+
+
+/.metadata/
+target
+.settings
+.idea
+*.iml
