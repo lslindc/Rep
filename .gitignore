@@ -1,6 +1,7 @@
 index.html
 /Lesson2/
-/bin/
+/Lesson3/bin/
+/Lesson3/bin
 /.classpath
 /.project
 
@@ -10,3 +11,9 @@ target
 .settings
 .idea
 *.iml
+
+/out/
+.idea/
+*.ini
+*.iml
+/target/
