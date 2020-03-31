@@ -1,33 +1,39 @@
 package com.planes;
 
-public class Planes {
-		
-		private int speed = 0;
-				int ceiling = 0;
-				int weight = 0;
-				int capacity = 0;
-				int passengers = 0;
-				private String name = "default";
+public abstract class Planes implements IPlanes {
 
-		public Planes() {
+	private String name = "default";
+	int speed = 0;
+	int weight = 0;
+	boolean isFlying;
 
-		}
-
-		public Planes(int speed, int ceiling, int weight, int capacity, int passengers, String name) {			
-			this.speed = speed;
-			this.weight = weight;
-			this.ceiling = ceiling;
-			this.name = name;
-			this.capacity = capacity;
-			this.passengers = passengers;
-		}
-		
-		protected void printInfo() {
-			System.out.println("Name: " + name);
-			System.out.println("Speed: " + speed + " km/h");
-			System.out.println("Empty weight: " + weight + " kg");
-			System.out.println("Max ceiling: " + ceiling + " m");
-			
-		}
-
+	public Planes() {
 	}
+
+	public Planes(int speed, int weight, String name) {
+		this.speed = speed;
+		this.weight = weight;
+		this.name = name;
+	}
+
+	public boolean getIsFlying() {
+		return isFlying;
+	}
+
+	public void printInfo() {
+		System.out.println("Name: " + name);
+		System.out.println("Speed: " + speed + " km/h");
+		System.out.println("Empty weight: " + weight + " kg");
+		System.out.println("Is Flying: " + isFlying);
+	}
+
+	@Override
+	public void takeOff() {
+		isFlying = true;
+	}
+
+	@Override
+	public void land() {
+		isFlying = false;
+	}
+}

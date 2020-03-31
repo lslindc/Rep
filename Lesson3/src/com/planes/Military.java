@@ -1,22 +1,31 @@
 package com.planes;
 
-public class Military extends Planes {
-	
-	private String Role = "Default";
+public abstract class Military extends Planes {
+
+	public int ceiling;
+	private String role;
 
 	public Military() {
 
 	}
-	
-	public Military(int speed, int ceiling, int weight, int capacity, int passengers, String name) {
-		super(speed, ceiling, weight, capacity, passengers, name);
-	}	
-	
-	public void setRole(String value) {
-		this.Role = value;
+
+	public Military(int speed, int weight, String name) {
+		super(speed, weight, name);
 	}
-	
+
+	public void setCeiling(int value) {
+		this.ceiling = value;
+	}
+
+	public int getCeiling() {
+		return this.ceiling;
+	}
+
+	public void setRole(String value) {
+		this.role = value;
+	}
+
 	public String getRole() {
-		return this.Role;
+		return this.role;
 	}
 }
