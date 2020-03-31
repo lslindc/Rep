@@ -15,7 +15,11 @@ public abstract class Planes implements IPlanes {
 		this.weight = weight;
 		this.name = name;
 	}
-		
+
+	public boolean getIsFlying() {
+		return isFlying;
+	}
+
 	public void printInfo() {
 		System.out.println("Name: " + name);
 		System.out.println("Speed: " + speed + " km/h");
