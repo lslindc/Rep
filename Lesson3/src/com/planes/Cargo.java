@@ -2,9 +2,10 @@ package com.planes;
 
 public abstract class Cargo extends Planes implements IPlanes {
 
+	private String role;
+
 	public int ceiling;
 	public int capacity;
-	private String role;
 
 	public Cargo() {
 
@@ -36,5 +37,18 @@ public abstract class Cargo extends Planes implements IPlanes {
 
 	public String getRole() {
 		return this.role;
+	}
+
+	@Override
+	public void prepareForFlight() {
+
+		System.out.println("Cargo was loaded!");
+
+		this.isReadyForFlight = true;
+	}
+
+	public String getWork() {
+
+		return null;
 	}
 }

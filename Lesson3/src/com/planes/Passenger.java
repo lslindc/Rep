@@ -37,4 +37,12 @@ public abstract class Passenger extends Planes {
 	public String getRole() {
 		return this.role;
 	}
+
+	@Override
+	public void prepareForFlight() {
+
+		System.out.println("Passengers on the board!");
+
+		this.isReadyForFlight = true;
+	}
 }

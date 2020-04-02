@@ -2,6 +2,13 @@ package com.main;
 
 import com.planes.*;
 
+import Hangar.Hangar;
+import PlaneModels.A380;
+import PlaneModels.C5;
+import PlaneModels.F35;
+import PlaneModels.Mriya;
+import PlaneModels.SuperJet;
+
 public class Executor {
 
 	public static void main(String[] args) {
@@ -42,7 +49,7 @@ public class Executor {
 		System.out.println("----------------");
 
 		Cargo air3 = new Mriya(850, 250000, "AN 225 Mriya");
-		air3.takeOff();
+		air3.land();
 
 		air3.printInfo();
 
@@ -98,5 +105,24 @@ public class Executor {
 		air5.setRole("Passenger aircraft Sukhoi");
 		Role = air5.getRole();
 		System.out.println(Role);
+
+		System.out.println("----------------");
+
+		Hangar hangar = new Hangar();
+
+		hangar.setPlane(air1);
+		System.out.println("Preparing plane #1");
+		hangar.getPlane().prepareForFlight();
+		System.out.println("Plane #1 prepared to take off");
+
+		hangar.setPlane(air3);
+		System.out.println("Preparing plane #2");
+		hangar.getPlane().prepareForFlight();
+		System.out.println("Plane #2 prepared to take off");
+
+		hangar.setPlane(air5);
+		System.out.println("Preparing plane #3");
+		hangar.getPlane().prepareForFlight();
+		System.out.println("Plane #3 prepared to take off");
 	}
 }
