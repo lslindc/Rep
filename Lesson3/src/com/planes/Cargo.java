@@ -46,9 +46,4 @@ public abstract class Cargo extends Planes implements IPlanes {
 
 		this.isReadyForFlight = true;
 	}
-
-	public String getWork() {
-
-		return null;
-	}
 }
