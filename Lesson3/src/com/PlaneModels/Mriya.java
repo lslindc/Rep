@@ -1,6 +1,6 @@
-package PlaneModels;
+package com.PlaneModels;
 
-import com.planes.Cargo;
+import com.Planes.Cargo;
 
 public class Mriya extends Cargo {
 

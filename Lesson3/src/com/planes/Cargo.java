@@ -1,4 +1,4 @@
-package com.planes;
+package com.Planes;
 
 public abstract class Cargo extends Planes implements IPlanes {
 

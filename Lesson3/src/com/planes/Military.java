@@ -1,4 +1,4 @@
-package com.planes;
+package com.Planes;
 
 public abstract class Military extends Planes {
 

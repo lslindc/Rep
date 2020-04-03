@@ -1,6 +1,6 @@
-package PlaneModels;
+package com.PlaneModels;
 
-import com.planes.Passenger;
+import com.Planes.Passenger;
 
 public class A380 extends Passenger {
 

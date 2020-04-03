@@ -1,6 +1,6 @@
-package Hangar;
+package com.Hangar;
 
-import com.planes.*;
+import com.Planes.*;
 
 public class Hangar {
 

@@ -1,13 +1,12 @@
 package com.main;
 
-import com.planes.*;
-
-import Hangar.Hangar;
-import PlaneModels.A380;
-import PlaneModels.C5;
-import PlaneModels.F35;
-import PlaneModels.Mriya;
-import PlaneModels.SuperJet;
+import com.Hangar.Hangar;
+import com.PlaneModels.A380;
+import com.PlaneModels.C5;
+import com.PlaneModels.F35;
+import com.PlaneModels.Mriya;
+import com.PlaneModels.SuperJet;
+import com.Planes.*;
 
 public class Executor {
 
@@ -21,7 +20,7 @@ public class Executor {
 		air1.setCeiling(12000);
 		int ceiling1 = air1.getCeiling();
 
-		System.out.println("Max ñeiling: " + ceiling1 + " m");
+		System.out.println("Max ceiling: " + ceiling1 + " m");
 
 		String Role = air1.getRole();
 
@@ -39,7 +38,7 @@ public class Executor {
 		air2.setCeiling(15000);
 		int ceiling2 = air2.getCeiling();
 
-		System.out.println("Max ñeiling: " + ceiling2 + " m");
+		System.out.println("Max ceiling: " + ceiling2 + " m");
 
 		air2.setRole("Stealth fighter");
 
@@ -56,12 +55,12 @@ public class Executor {
 		air3.setCeiling(12000);
 		int ceiling = air3.getCeiling();
 
-		System.out.println("Max ñeiling: " + ceiling + " m");
+		System.out.println("Max ceiling: " + ceiling + " m");
 
 		air3.setCapacity(250000);
 		int capacity = air3.getCapacity();
 
-		System.out.println("Max ñapacity: " + capacity + " kg");
+		System.out.println("Max capacity: " + capacity + " kg");
 
 		air3.setRole("Cargo aircraft");
 
@@ -78,7 +77,7 @@ public class Executor {
 		air4.setCeiling(11000);
 		int ceiling4 = air4.getCeiling();
 
-		System.out.println("Max ñeiling: " + ceiling4 + " m");
+		System.out.println("Max ceiling: " + ceiling4 + " m");
 
 		air4.setPassengers(853);
 		int passengers = air4.getPassengers();
@@ -96,7 +95,7 @@ public class Executor {
 		air5.setCeiling(12200);
 		int ceiling5 = air5.getCeiling();
 
-		System.out.println("Max ñeiling: " + ceiling5 + " m");
+		System.out.println("Max ceiling: " + ceiling5 + " m");
 
 		air5.setPassengers(108);
 		int passengers2 = air5.getPassengers();
