@@ -1,12 +1,16 @@
-package com.planes;
+package com.Planes;
 
 public abstract class Planes implements IPlanes {
 
+	// variables
+	private int speed = 0;
+	private int weight = 0;
 	private String name = "default";
-	int speed = 0;
-	int weight = 0;
-	boolean isFlying;
 
+	boolean isFlying;
+	boolean isReadyForFlight;
+
+	// constructor
 	public Planes() {
 	}
 
@@ -16,10 +20,24 @@ public abstract class Planes implements IPlanes {
 		this.name = name;
 	}
 
+	// getters
+	public int getSpeed() {
+		return this.speed;
+	}
+
+	public int getWeight() {
+		return this.weight;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
 	public boolean getIsFlying() {
 		return isFlying;
 	}
 
+	// method
 	public void printInfo() {
 		System.out.println("Name: " + name);
 		System.out.println("Speed: " + speed + " km/h");

@@ -1,4 +1,6 @@
-package com.planes;
+package com.PlaneModels;
+
+import com.Planes.Passenger;
 
 public class SuperJet extends Passenger {
 

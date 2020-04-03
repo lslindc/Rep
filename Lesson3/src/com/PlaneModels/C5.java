@@ -1,4 +1,6 @@
-package com.planes;
+package com.PlaneModels;
+
+import com.Planes.Military;
 
 public class C5 extends Military {
 
