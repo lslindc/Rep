@@ -2,7 +2,6 @@ package com.Planes;
 
 public abstract class Military extends Planes {
 
-	public int ceiling;
 	private String role;
 
 	public Military() {
@@ -11,14 +10,6 @@ public abstract class Military extends Planes {
 
 	public Military(int speed, int weight, String name) {
 		super(speed, weight, name);
-	}
-
-	public void setCeiling(int value) {
-		this.ceiling = value;
-	}
-
-	public int getCeiling() {
-		return this.ceiling;
 	}
 
 	public void setRole(String value) {

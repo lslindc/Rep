@@ -7,20 +7,16 @@ import com.PlaneModels.F35;
 import com.PlaneModels.Mriya;
 import com.PlaneModels.SuperJet;
 import com.Planes.*;
+import com.main.Schedule;
 
 public class Executor {
 
-	public static void main(String[] args) {
+	public static final void main(String[] args) {
 
 		C5 air1 = new C5(856, 172365, "Lockheed C5");
 		air1.land();
 
 		air1.printInfo();
-
-		air1.setCeiling(12000);
-		int ceiling1 = air1.getCeiling();
-
-		System.out.println("Max ceiling: " + ceiling1 + " m");
 
 		String Role = air1.getRole();
 
@@ -35,11 +31,6 @@ public class Executor {
 
 		air2.printInfo();
 
-		air2.setCeiling(15000);
-		int ceiling2 = air2.getCeiling();
-
-		System.out.println("Max ceiling: " + ceiling2 + " m");
-
 		air2.setRole("Stealth fighter");
 
 		Role = air2.getRole();
@@ -51,16 +42,6 @@ public class Executor {
 		air3.land();
 
 		air3.printInfo();
-
-		air3.setCeiling(12000);
-		int ceiling = air3.getCeiling();
-
-		System.out.println("Max ceiling: " + ceiling + " m");
-
-		air3.setCapacity(250000);
-		int capacity = air3.getCapacity();
-
-		System.out.println("Max capacity: " + capacity + " kg");
 
 		air3.setRole("Cargo aircraft");
 
@@ -74,11 +55,6 @@ public class Executor {
 
 		air4.printInfo();
 
-		air4.setCeiling(11000);
-		int ceiling4 = air4.getCeiling();
-
-		System.out.println("Max ceiling: " + ceiling4 + " m");
-
 		air4.setPassengers(853);
 		int passengers = air4.getPassengers();
 		System.out.println("Max passengers: " + passengers);
@@ -91,11 +67,6 @@ public class Executor {
 
 		Passenger air5 = new SuperJet(830, 24250, "Superjet Sukhoi");
 		air5.printInfo();
-
-		air5.setCeiling(12200);
-		int ceiling5 = air5.getCeiling();
-
-		System.out.println("Max ceiling: " + ceiling5 + " m");
 
 		air5.setPassengers(108);
 		int passengers2 = air5.getPassengers();
@@ -123,5 +94,42 @@ public class Executor {
 		System.out.println("Preparing plane #3");
 		hangar.getPlane().prepareForFlight();
 		System.out.println("Plane #3 prepared to take off");
+		System.out.println("----------------");
+
+		getSchedule(schedule);
 	}
+
+	static Schedule schedule = Schedule.SATURDAY;
+
+	public static void getSchedule(Schedule schedule) {
+
+		switch (schedule) {
+
+		case MONDAY:
+			System.out.println("Monday: Test flights of A380");
+			break;
+
+		case TUESDAY:
+			System.out.println("Tuesday: Test flights of C5");
+			break;
+
+		case WEDNESDAY:
+			System.out.println("Wednesday: Test flights of Sukhoi");
+			break;
+
+		case THURSDAY:
+			System.out.println("Thursday: Test flights of Mriya");
+			break;
+
+		case FRIDAY:
+			System.out.println("Friday: Test flights of F35");
+			break;
+
+		default:
+			System.out.println("Aircraft maintenance");
+			break;
+		}
+
+	}
+
 }
