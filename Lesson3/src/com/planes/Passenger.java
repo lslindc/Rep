@@ -3,7 +3,6 @@ package com.Planes;
 public abstract class Passenger extends Planes {
 
 	private String role;
-	public int ceiling;
 	public int passengers;
 
 	public Passenger() {
@@ -12,14 +11,6 @@ public abstract class Passenger extends Planes {
 
 	public Passenger(int speed, int weight, String name) {
 		super(speed, weight, name);
-	}
-
-	public void setCeiling(int value) {
-		this.ceiling = value;
-	}
-
-	public int getCeiling() {
-		return this.ceiling;
 	}
 
 	public void setPassengers(int value) {
