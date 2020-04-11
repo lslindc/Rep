@@ -12,7 +12,8 @@ import com.main.Schedule;
 public class Executor {
 
 	public static final void main(String[] args) {
-
+		final String DEMO_CONSTANT = "Test string constant";
+		final int CEILING = 12000;
 		C5 air1 = new C5(856, 172365, "Lockheed C5");
 		air1.land();
 
@@ -74,6 +75,8 @@ public class Executor {
 
 		air5.setRole("Passenger aircraft Sukhoi");
 		Role = air5.getRole();
+		System.out.println(DEMO_CONSTANT);
+		System.out.println("Max ceiling: " + CEILING);
 		System.out.println(Role);
 
 		System.out.println("----------------");
@@ -129,7 +132,5 @@ public class Executor {
 			System.out.println("Aircraft maintenance");
 			break;
 		}
-
 	}
-
 }

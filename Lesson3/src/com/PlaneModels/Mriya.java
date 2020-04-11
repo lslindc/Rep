@@ -2,7 +2,7 @@ package com.PlaneModels;
 
 import com.Planes.Cargo;
 
-public class Mriya extends Cargo {
+public final class Mriya extends Cargo {
 
 	public Mriya() {
 	}
