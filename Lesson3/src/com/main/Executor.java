@@ -1,5 +1,11 @@
 package com.main;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.Scanner;
 import com.Hangar.Hangar;
 import com.PlaneModels.A380;
 import com.PlaneModels.C5;
@@ -12,125 +18,132 @@ import com.main.Schedule;
 public class Executor {
 
 	public static final void main(String[] args) {
-		final String DEMO_CONSTANT = "Test string constant";
-		final int CEILING = 12000;
-		C5 air1 = new C5(856, 172365, "Lockheed C5");
-		air1.land();
-
-		air1.printInfo();
-
-		String Role = air1.getRole();
-
-		air1.setRole("Strategic airlift");
-		Role = air1.getRole();
-		System.out.println(Role);
-
-		System.out.println("----------------");
-
-		F35 air2 = new F35(1960, 13290, "Lockheed F35");
-		air2.takeOff();
-
-		air2.printInfo();
-
-		air2.setRole("Stealth fighter");
-
-		Role = air2.getRole();
-		System.out.println(Role);
-
-		System.out.println("----------------");
-
-		Cargo air3 = new Mriya(850, 250000, "AN 225 Mriya");
-		air3.land();
-
-		air3.printInfo();
-
-		air3.setRole("Cargo aircraft");
-
-		Role = air3.getRole();
-		System.out.println(Role);
-
-		System.out.println("----------------");
-
-		Passenger air4 = new A380(800, 285000, "Airbus A380");
-		air4.takeOff();
-
-		air4.printInfo();
-
-		air4.setPassengers(853);
-		int passengers = air4.getPassengers();
-		System.out.println("Max passengers: " + passengers);
-
-		air4.setRole("Passenger aircraft");
-		Role = air4.getRole();
-		System.out.println(Role);
-
-		System.out.println("----------------");
-
-		Passenger air5 = new SuperJet(830, 24250, "Superjet Sukhoi");
-		air5.printInfo();
-
-		air5.setPassengers(108);
-		int passengers2 = air5.getPassengers();
-		System.out.println("Max passengers: " + passengers2);
-
-		air5.setRole("Passenger aircraft Sukhoi");
-		Role = air5.getRole();
-		System.out.println(DEMO_CONSTANT);
-		System.out.println("Max ceiling: " + CEILING);
-		System.out.println(Role);
-
-		System.out.println("----------------");
 
 		Hangar hangar = new Hangar();
 
-		hangar.setPlane(air1);
-		System.out.println("Preparing plane #1");
-		hangar.getPlane().prepareForFlight();
-		System.out.println("Plane #1 prepared to take off");
+		boolean exit = false;
 
-		hangar.setPlane(air3);
-		System.out.println("Preparing plane #2");
-		hangar.getPlane().prepareForFlight();
-		System.out.println("Plane #2 prepared to take off");
+		do {
+			System.out.println("Please select action from menu");
+			System.out.println("Menu:");
+			System.out.println("1 - Add new plane");
+			System.out.println("2 - Remove plane");
+			System.out.println("3 - Show info of planes");
+			System.out.println("4 - Exit");
+			Scanner in = new Scanner(System.in);
+			int action = in.nextInt();
 
-		hangar.setPlane(air5);
-		System.out.println("Preparing plane #3");
-		hangar.getPlane().prepareForFlight();
-		System.out.println("Plane #3 prepared to take off");
-		System.out.println("----------------");
+			/*
+			 * in.close(); Can't close scanner
+			 * 
+			 *
+			 * Main switch case initialize
+			 */
+			switch (action) {
 
-		getSchedule(schedule);
-	}
+			case 1:
+				System.out.println("What type of plane you want to add? ");
+				System.out.println("|1 - Cargo| |2 - Passenger| |3 - Military| |4 - Exit|");
+				int choosePlane = in.nextInt();
 
-	static Schedule schedule = Schedule.SATURDAY;
+				String name;
+				int speed;
 
-	public static void getSchedule(Schedule schedule) {
+				/*
+				 * Secondly switch case with choosing type of planes we want to add. Cargo has
+				 * own property "capacity". Passenger has own property number of "passengers".
+				 * Military has own property number of "seats"
+				 */
+				switch (choosePlane) {
+				case 1:
+					System.out.println("Type name of a plane: ");
+					name = in.next();
+					System.out.println("Type maximum speed of a plane: ");
+					speed = in.nextInt();
+					System.out.println("Type capacity volume: ");
+					int capacity = in.nextInt();
 
-		switch (schedule) {
+					Cargo cargoPlane = new Cargo(speed, name);
+					cargoPlane.setCapacity(capacity);
+					hangar.addPlane(cargoPlane);
+					hangar.addCargo(cargoPlane);
 
-		case MONDAY:
-			System.out.println("Monday: Test flights of A380");
-			break;
+					break;
+				case 2:
+					System.out.println("Type name of a plane: ");
+					name = in.next();
+					System.out.println("Type maximum speed of a plane: ");
+					speed = in.nextInt();
+					System.out.println("Type number of passengers: ");
+					int passengers = in.nextInt();
 
-		case TUESDAY:
-			System.out.println("Tuesday: Test flights of C5");
-			break;
+					Passenger passengerPlane = new Passenger(speed, name);
+					passengerPlane.setPassengers(passengers);
+					hangar.addPlane(passengerPlane);
+					hangar.addPassenger(passengerPlane);
 
-		case WEDNESDAY:
-			System.out.println("Wednesday: Test flights of Sukhoi");
-			break;
+					break;
+				case 3:
+					System.out.println("Type name of a plane: ");
+					name = in.next();
+					System.out.println("Type maximum speed of a plane: ");
+					speed = in.nextInt();
+					System.out.println("Type number of seats: ");
+					int seats = in.nextInt();
 
-		case THURSDAY:
-			System.out.println("Thursday: Test flights of Mriya");
-			break;
+					Military militaryPlane = new Military(speed, name);
+					militaryPlane.setSeats(seats);
+					hangar.addPlane(militaryPlane);
 
-		case FRIDAY:
-			System.out.println("Friday: Test flights of F35");
-			break;
+					break;
 
-		default:
-			System.out.println("Aircraft maintenance");
-			break;
-		}
+				case 4:
+					exit = true;
+					break;
+
+				default:
+					System.out.println("Wrong value");
+					break;
+				}
+				break;
+			/*
+			 * Value of index set with -1. To make it easier to count
+			 */
+			case 2:
+				System.out.println("Enter number of the Plane that you want to delete");
+				int index = in.nextInt();
+
+				hangar.removePlane(index - 1);
+				break;
+
+			case 3:
+				System.out.println("Info of planes: ");
+				System.out.println();
+				List<Planes> planes = hangar.getListPlanes();
+
+				if (planes.isEmpty())
+					System.out.println("Hangar is empty!");
+
+				else {
+					System.out.println("List of planes: ");
+					for (Planes p : planes) {
+						p.printInfo();
+						System.out.println();
+
+					}
+				}
+
+				break;
+
+			case 4:
+				exit = true;
+				System.out.println("Bye!");
+				break;
+
+			default:
+				System.out.println("Default exception");
+				break;
+			}
+		} while (!exit);
 	}
 }
