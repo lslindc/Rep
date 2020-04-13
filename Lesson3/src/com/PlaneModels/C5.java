@@ -7,8 +7,8 @@ public class C5 extends Military {
 	public C5() {
 	}
 
-	public C5(int speed, int weight, String name) {
+	public C5(int speed, String name) {
 
-		super(speed, weight, name);
+		super(speed, name);
 	}
 }

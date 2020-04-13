@@ -1,31 +1,28 @@
 package com.Planes;
 
-public abstract class Military extends Planes {
+public class Military extends Planes {
 
-	private String role;
+	int seats;
 
 	public Military() {
 
 	}
 
-	public Military(int speed, int weight, String name) {
-		super(speed, weight, name);
+	public Military(int speed, String name) {
+		super(speed, name);
 	}
 
-	public void setRole(String value) {
-		this.role = value;
+	public void setSeats(int value) {
+		this.seats = value;
 	}
 
-	public String getRole() {
-		return this.role;
+	public int getSeats() {
+		return this.seats;
 	}
 
 	@Override
-	public void prepareForFlight() {
-
-		System.out.println("Tanks are fully refueled!");
-
-		this.isReadyForFlight = true;
+	public void printInfo() {
+		super.printInfo();
+		System.out.println("Number of seats: " + seats);
 	}
-
 }

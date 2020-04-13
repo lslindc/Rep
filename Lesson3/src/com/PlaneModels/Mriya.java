@@ -7,7 +7,7 @@ public final class Mriya extends Cargo {
 	public Mriya() {
 	}
 
-	public Mriya(int speed, int weight, String name) {
-		super(speed, weight, name);
+	public Mriya(int speed, String name) {
+		super(speed, name);
 	}
 }

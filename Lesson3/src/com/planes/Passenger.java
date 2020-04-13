@@ -1,16 +1,15 @@
 package com.Planes;
 
-public abstract class Passenger extends Planes {
+public class Passenger extends Planes {
 
-	private String role;
-	public int passengers;
+	private int passengers;
 
 	public Passenger() {
 
 	}
 
-	public Passenger(int speed, int weight, String name) {
-		super(speed, weight, name);
+	public Passenger(int speed, String name) {
+		super(speed, name);
 	}
 
 	public void setPassengers(int value) {
@@ -21,19 +20,9 @@ public abstract class Passenger extends Planes {
 		return this.passengers;
 	}
 
-	public void setRole(String value) {
-		this.role = value;
-	}
-
-	public String getRole() {
-		return this.role;
-	}
-
 	@Override
-	public void prepareForFlight() {
-
-		System.out.println("Passengers on the board!");
-
-		this.isReadyForFlight = true;
+	public void printInfo() {
+		super.printInfo();
+		System.out.println("Passengers: " + passengers);
 	}
 }
