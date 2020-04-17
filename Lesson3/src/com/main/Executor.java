@@ -1,19 +1,9 @@
 package com.main;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import java.util.Scanner;
 import com.Hangar.Hangar;
-import com.PlaneModels.A380;
-import com.PlaneModels.C5;
-import com.PlaneModels.F35;
-import com.PlaneModels.Mriya;
-import com.PlaneModels.SuperJet;
 import com.Planes.*;
-import com.main.Schedule;
 
 public class Executor {
 
@@ -22,23 +12,25 @@ public class Executor {
 		Hangar hangar = new Hangar();
 
 		boolean exit = false;
-
+		/**
+		 * Menu based on 2 switch cases. Cargo has own property "capacity". Passenger
+		 * has own property number of "passengers". Military has own property number of
+		 * "seats".
+		 * 
+		 * @author Serg
+		 * @version 1.3
+		 */
 		do {
 			System.out.println("Please select action from menu");
 			System.out.println("Menu:");
 			System.out.println("1 - Add new plane");
 			System.out.println("2 - Remove plane");
 			System.out.println("3 - Show info of planes");
-			System.out.println("4 - Exit");
+			System.out.println("4 - Print info about Planes");
+			System.out.println("5 - Exit");
 			Scanner in = new Scanner(System.in);
 			int action = in.nextInt();
 
-			/*
-			 * in.close(); Can't close scanner
-			 * 
-			 *
-			 * Main switch case initialize
-			 */
 			switch (action) {
 
 			case 1:
@@ -49,11 +41,7 @@ public class Executor {
 				String name;
 				int speed;
 
-				/*
-				 * Secondly switch case with choosing type of planes we want to add. Cargo has
-				 * own property "capacity". Passenger has own property number of "passengers".
-				 * Military has own property number of "seats"
-				 */
+// Secondly switch case for choosing what type of plane we want add		
 				switch (choosePlane) {
 				case 1:
 					System.out.println("Type name of a plane: ");
@@ -67,6 +55,7 @@ public class Executor {
 					cargoPlane.setCapacity(capacity);
 					hangar.addPlane(cargoPlane);
 					hangar.addCargo(cargoPlane);
+					cargoPlane.prepareForFlight(name);
 
 					break;
 				case 2:
@@ -81,6 +70,7 @@ public class Executor {
 					passengerPlane.setPassengers(passengers);
 					hangar.addPlane(passengerPlane);
 					hangar.addPassenger(passengerPlane);
+					passengerPlane.prepareForFlight(name);
 
 					break;
 				case 3:
@@ -95,6 +85,9 @@ public class Executor {
 					militaryPlane.setSeats(seats);
 					hangar.addPlane(militaryPlane);
 
+					hangar.setMilitaryPlane(militaryPlane);
+					militaryPlane.prepareForFlight(name);
+
 					break;
 
 				case 4:
@@ -106,8 +99,11 @@ public class Executor {
 					break;
 				}
 				break;
-			/*
+			/**
 			 * Value of index set with -1. To make it easier to count
+			 * 
+			 * @author Serg
+			 * @version 1.0
 			 */
 			case 2:
 				System.out.println("Enter number of the Plane that you want to delete");
@@ -123,19 +119,19 @@ public class Executor {
 
 				if (planes.isEmpty())
 					System.out.println("Hangar is empty!");
-
 				else {
 					System.out.println("List of planes: ");
 					for (Planes p : planes) {
 						p.printInfo();
 						System.out.println();
-
 					}
 				}
-
 				break;
 
 			case 4:
+				hangar.printInfo(hangar.getListPlanes());
+				break;
+			case 5:
 				exit = true;
 				System.out.println("Bye!");
 				break;
@@ -144,6 +140,7 @@ public class Executor {
 				System.out.println("Default exception");
 				break;
 			}
+			in.close();
 		} while (!exit);
 	}
 }

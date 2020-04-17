@@ -5,7 +5,6 @@ public class Cargo extends Planes implements IPlanes {
 	private int capacity;
 
 	public Cargo() {
-
 	}
 
 	public Cargo(int speed, String name) {
@@ -24,5 +23,13 @@ public class Cargo extends Planes implements IPlanes {
 	public void printInfo() {
 		super.printInfo();
 		System.out.println("Capacity: " + capacity);
+	}
+
+	@Override
+	public void prepareForFlight() {
+
+		System.out.println("Cargo was loaded!");
+
+		this.isReadyForFlight = true;
 	}
 }
