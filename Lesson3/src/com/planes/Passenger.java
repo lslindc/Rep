@@ -25,4 +25,12 @@ public class Passenger extends Planes {
 		super.printInfo();
 		System.out.println("Passengers: " + passengers);
 	}
+
+	@Override
+	public void prepareForFlight() {
+
+		System.out.println("Passengers on the board!");
+
+		this.isReadyForFlight = true;
+	}
 }

@@ -25,4 +25,12 @@ public class Military extends Planes {
 		super.printInfo();
 		System.out.println("Number of seats: " + seats);
 	}
+
+	@Override
+	public void prepareForFlight() {
+
+		System.out.println("Tanks are fully refueled!");
+
+		this.isReadyForFlight = true;
+	}
 }
