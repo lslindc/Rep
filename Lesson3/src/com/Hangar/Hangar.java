@@ -18,31 +18,11 @@ public class Hangar {
 	Set<Cargo> setOfCargo;
 	Map<String, Military> militaryMap;
 
-//	List<Cargo> listCargo; 
-//	List<? extends Planes> listExtendsPlanes;  
-//	List<? super Cargo> listSuperPlane; 
-
 	public Hangar() {
 		listPlanes = new ArrayList<Planes>();
 		listPassenger = new LinkedList<Passenger>();
 		setOfCargo = new HashSet<Cargo>();
 		militaryMap = new HashMap<>();
-
-//		listExtendsPlanes = new ArrayList<Planes>();  
-//
-//		Planes p = new Cargo();
-//		Cargo c = new Cargo();
-//		
-//		p = c;
-//		
-//		listPlanes=listCargo;
-//		listCargo=listPlanes;
-//		
-//		listExtendsPlanes=listPlanes;
-//		listExtendsPlanes=listCargo;
-//		
-//		listSuperPlane=listPlanes;
-//		listSuperPlane=listCargo;
 	}
 
 	/**
