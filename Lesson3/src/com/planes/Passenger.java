@@ -4,10 +4,6 @@ public class Passenger extends Planes {
 
 	private int passengers;
 
-	public Passenger() {
-
-	}
-
 	public Passenger(int speed, String name) {
 		super(speed, name);
 	}
