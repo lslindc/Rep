@@ -27,15 +27,15 @@ public class Hangar {
 
 	/**
 	 * Method for printing name of plane(after override with toString in Planes).
-	 * Used in demo for wildcards
 	 * 
 	 * @author Serg
-	 * @version 1.1
+	 * @version 1.2
 	 * @param list
 	 */
-	public void printInfo(Collection<? extends Planes> list) {
+	public static void printInfo(Collection<? extends Planes> list) {
 		for (Object ls : list) {
 			System.out.println("Name of plane: " + ls.toString());
+			Planes.getplaneColor();
 		}
 	}
 
@@ -43,12 +43,22 @@ public class Hangar {
 		listPlanes.add(planes);
 	}
 
+	/**
+	 * Method for removing planes from arraylist. Value of index set with -1 in menu
+	 * to make it easier to count
+	 */
 	public void removePlane(int index) {
 		listPlanes.remove(index);
 	}
 
+	/**
+	 * Getting arraylist with all planes
+	 * 
+	 * @return
+	 */
 	public List<Planes> getListPlanes() {
 		return listPlanes;
+
 	}
 
 	public void setPlane() {

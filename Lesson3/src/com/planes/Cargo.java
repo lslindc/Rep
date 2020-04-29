@@ -4,9 +4,6 @@ public class Cargo extends Planes implements IPlanes {
 
 	private int capacity;
 
-	public Cargo() {
-	}
-
 	public Cargo(int speed, String name) {
 		super(speed, name);
 	}

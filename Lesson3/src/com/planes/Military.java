@@ -4,10 +4,6 @@ public class Military extends Planes {
 
 	int seats;
 
-	public Military() {
-
-	}
-
 	public Military(int speed, String name) {
 		super(speed, name);
 	}
