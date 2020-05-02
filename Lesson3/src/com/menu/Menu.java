@@ -19,8 +19,6 @@ public class Menu {
 	public void ShowMenu() {
 		boolean exit = false;
 
-		// Scanner in = new Scanner(System.in); // ask
-
 		do {
 			try {
 				System.out.println("Please select action from menu");
@@ -32,30 +30,34 @@ public class Menu {
 				System.out.println("5 - Exit");
 
 				Scanner in = new Scanner(System.in);
-				int action = in.nextInt();
-				switch (action) {
+				if (in.hasNextInt()) {
 
-				case 1:
-					addPlane();
-					break;
-				case 2:
-					removePlane();
-					break;
-				case 3:
-					infoPlanes();
-					break;
-				case 4:
-					printInfo();
-					break;
-				case 5:
-					exit = true;
-					System.out.println("Bye!");
-					break;
-				default:
-					System.out.println("Default case exception. Please choose number from 1 to 5");
-					break;
+					int action = in.nextInt();
+					switch (action) {
+
+					case 1:
+						addPlane();
+						break;
+					case 2:
+						removePlane();
+						break;
+					case 3:
+						infoPlanes();
+						break;
+					case 4:
+						printInfo();
+						break;
+					case 5:
+						exit = true;
+						System.out.println("Bye!");
+						break;
+					default:
+						System.out.println("Default case exception. Please choose number from 1 to 5");
+						break;
+					}
+				} else {
+					System.out.println("Sorry, you must enter digit");
 				}
-
 			} catch (InputMismatchException e) {
 				System.out.println("Element doesnt exist. Choose number from 1 to 5");
 			} catch (PlaneDataException e) {
@@ -72,7 +74,7 @@ public class Menu {
 
 			}
 		} while (!exit);
-		// in.close(); // ask
+//		 in.close(); // ask
 	}
 
 	private void addPlane() throws PlaneDataException {
@@ -166,15 +168,15 @@ public class Menu {
 	}
 
 	private void infoPlanes() throws EmptyHangarException {
-
 		System.out.println("=====================");
 		System.out.println("Info of planes: ");
 		System.out.println();
 		List<Planes> planes = hangar.getListPlanes();
 
-		if (planes.isEmpty())
-			System.out.println("Hangar is empty!");
-		else {
+		if (planes.isEmpty()) {
+			// System.out.println("Hangar is empty!");
+			throw new EmptyHangarException();
+		} else {
 			System.out.println("List of planes: ");
 			for (Planes p : planes) {
 				p.printInfo();

@@ -29,7 +29,6 @@ public class Hangar {
 	 * Method for printing name of plane(after override with toString in Planes).
 	 * 
 	 * @author Serg
-	 * @version 1.2
 	 * @param list
 	 */
 	public static void printInfo(Collection<? extends Planes> list) {
