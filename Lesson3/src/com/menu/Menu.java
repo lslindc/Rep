@@ -1,5 +1,6 @@
 package com.menu;
 
+import java.io.File;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -11,12 +12,17 @@ import com.Planes.Passenger;
 import com.Planes.Planes;
 import com.exceptions.EmptyHangarException;
 import com.exceptions.PlaneDataException;
+import com.utils.*;
 
 public class Menu {
 
 	Hangar hangar = new Hangar();
 
-	public void ShowMenu() {
+	public void ShowMenu() throws Exception {
+
+//		String path2 = String.format("C:%1$s asd %1$s", "test");
+//		String path1 = String.format("C:%1$sUsers%1$sSerg%1$sDesktop%1$stext1", File.separator);
+
 		boolean exit = false;
 
 		do {
@@ -27,7 +33,8 @@ public class Menu {
 				System.out.println("2 - Remove plane");
 				System.out.println("3 - Show info of planes");
 				System.out.println("4 - Print info about Planes");
-				System.out.println("5 - Exit");
+				System.out.println("5 - IO Writer/Reader");
+				System.out.println("6 - Exit");
 
 				Scanner in = new Scanner(System.in);
 				if (in.hasNextInt()) {
@@ -48,6 +55,9 @@ public class Menu {
 						printInfo();
 						break;
 					case 5:
+						IOWriterReader();
+						break;
+					case 6:
 						exit = true;
 						System.out.println("Bye!");
 						break;
@@ -64,8 +74,8 @@ public class Menu {
 				System.out.println(e.getMessage());
 			} catch (EmptyHangarException e) {
 				System.out.println(e.getMessage());
-//				} catch (Exception e) {
-//				System.out.println("Error: " + e.getMessage());
+			} catch (Exception e) {
+				System.out.println("Error: " + e.getMessage());
 			} finally {
 
 				System.out.println("=====================");
@@ -174,7 +184,6 @@ public class Menu {
 		List<Planes> planes = hangar.getListPlanes();
 
 		if (planes.isEmpty()) {
-			// System.out.println("Hangar is empty!");
 			throw new EmptyHangarException();
 		} else {
 			System.out.println("List of planes: ");
@@ -188,5 +197,46 @@ public class Menu {
 
 	private void printInfo() {
 		Hangar.printInfo(hangar.getListPlanes());
+	}
+
+	private void IOWriterReader() throws Exception {
+		boolean exit = false;
+		do {
+			try {
+				Scanner in = new Scanner(System.in);
+
+				System.out.println("What do you want to do? ");
+				System.out.println(
+						"|1 - Write to file| |2 - Read from file| |3 - Write property| |4 - Read Property| |5 - Exit|");
+				int IOOperation = in.nextInt();
+
+				switch (IOOperation) {
+
+				case 1:
+					IOWriterReader.writeToFile("Write to the file test. Homework from Lesson11, topic IOFiles");
+					System.out.println("Done");
+					break;
+				case 2:
+					IOWriterReader.readFromFile();
+					break;
+				case 3:
+
+					break;
+				case 4:
+
+					break;
+				case 5:
+					exit = true;
+					System.out.println("You are on the main menu now!");
+					break;
+				default:
+					System.out.println("Wrong value. Please choose from 1 to 5");
+					break;
+				}
+//				in.close();
+			} catch (Exception e) {
+				System.out.println("Error: " + e.getMessage());
+			}
+		} while (!exit);
 	}
 }
