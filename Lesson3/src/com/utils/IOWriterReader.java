@@ -2,15 +2,14 @@ package com.utils;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.Properties;
 
 public class IOWriterReader {
 
-	static String separator = File.separator;
-	static String path = "C:" + separator + "Users" + separator + "Serg" + separator + "Desktop" + separator + "text1";
-	static String path2 = "C:" + separator + "Users" + separator + "Serg" + separator + "Desktop" + separator + "text2";
-	// static String path2 = "C:%1$sUsers%1$sSerg%1$sDesktop%1$stext1";
+	private String separator = File.separator;
+	private String path = "C:" + separator + "Users" + separator + "Serg" + separator + "Desktop" + separator + "text1";
 
-	public static void writeToFile(String value) throws Exception {
+	public void writeToFile(String value) {
 
 		File file = new File(path);
 		try {
@@ -19,13 +18,13 @@ public class IOWriterReader {
 			wf.write(value);
 			wf.close();
 
-		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 	}
 
-	public static String readFromFile() throws Exception {
+	public String readFromFile() {
 
 		File file = new File(path);
 
@@ -38,7 +37,7 @@ public class IOWriterReader {
 			System.out.println(scanner.nextLine());
 			rf.close();
 
-		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
 
 			e.printStackTrace();
 

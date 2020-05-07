@@ -199,7 +199,7 @@ public class Menu {
 		Hangar.printInfo(hangar.getListPlanes());
 	}
 
-	private void IOWriterReader() throws Exception {
+	private void IOWriterReader() {
 		boolean exit = false;
 		do {
 			try {
@@ -213,17 +213,22 @@ public class Menu {
 				switch (IOOperation) {
 
 				case 1:
-					IOWriterReader.writeToFile("Write to the file test. Homework from Lesson11, topic IOFiles");
+					IOWriterReader wf = new IOWriterReader();
+					wf.writeToFile("Write to the file. Homework from Lesson11, topic IOFiles");
 					System.out.println("Done");
 					break;
 				case 2:
-					IOWriterReader.readFromFile();
+					IOWriterReader rf = new IOWriterReader();
+					rf.readFromFile();
 					break;
 				case 3:
-
+					IOPropWriterReader fr = new IOPropWriterReader();
+					fr.setValueToProperties("path", "C:\\Users\\Serg\\Desktop\\my.properties"); // use key and value!
+					System.out.println("Done");
 					break;
 				case 4:
-
+					String path = IOPropWriterReader.getValueFromProperties("path"); // use key
+					System.out.println("Path to properties: " + path);
 					break;
 				case 5:
 					exit = true;
